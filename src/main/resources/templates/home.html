@@ -5,12 +5,37 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
 </head>
-<body>
+<body th:bgcolor="Honeydew">
 
 <h1 th:align="center"  >Hello, it's a homepage</h1>
-<!--<p th:align="center"><input type="button" value="Войти" onClick='location.href="http://localhost:8080/login"'>-->
-<!--<div type="button" width="60" height="100">This is a button</div>-->
-<p th:align="center"><button type="button"  onClick='location.href="http://localhost:8080/login"'
-                             style="height: 100px; width: 200px"><font size="15">Войти</font></button></p>
+<style>
+    h1 {
+        font-size: 120px;
+    }
+    h1 {
+        color: mediumvioletred;
+    }
+
+</style>
+
+<p  th:align="center">
+    <button class="button" type="button"  onClick='location.href="http://localhost:8080/login"'>
+        Войти</button>
+    <style>
+        button{
+            color: darkmagenta;
+            background-color: lightcoral;
+        }
+        button {
+            font-size: 100px;
+        }
+        button:hover{
+            font-size: 150px;
+            color: green;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</p>
+
 </body>
 </html>

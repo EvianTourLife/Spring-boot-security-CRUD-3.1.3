@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <title>Info</title>
 </head>
-<body>
-<table th:border="3" th:align="center" th:width="300" th:bgcolor="DarkCyan" th:cellspacing="0" th:cellpadding="10"
-       style="margin-top: 150px">
+<body th:bgcolor="MistyRose">
+<table th:border="6" th:align="center" th:width="500" th:bgcolor="NavajoWhite" th:cellspacing="5" th:cellpadding="20"
+       style="margin-top: 25px">
     <tread>
-        <tr th:bgcolor="MediumSlateBlue	">
+        <tr th:bgcolor="AntiqueWhite">
             <th>Username</th>
             <th>Name</th>
             <th>Surname</th>
@@ -25,7 +25,24 @@
     </form>
     </tr>
 </table>
-<p th:align="center"><button type="button"  onClick='location.href="http://localhost:8080/logout"'
-                             style="height: 250px; width: 400px"><font size="15">Выйти из аккаунта</font></button></p>
+<p th:align="center">
+    <button class="button" type="button" onClick='location.href="http://localhost:8080/logout"'/>
+    Выйти из аккаунта</button>
+    <style>
+        button {
+            color: darkmagenta;
+            background-color: lightcoral;
+        }
+
+        button {
+            font-size: 30px;
+        }
+
+        button:hover {
+            color: midnightblue;
+            background-color: red;
+        }
+    </style>
+</p>
 </body>
 </html>

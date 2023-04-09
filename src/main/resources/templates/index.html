@@ -5,20 +5,22 @@
     <meta charset="UTF-8">
     <title>All users</title>
 </head>
-<body>
+<body th:bgcolor="MistyRose">
+<p>
 
-<table th:border="3" th:align="center" th:width="300" th:bgcolor="DarkCyan" th:cellspacing="0" th:cellpadding="10"
-       style="margin-top: 150px">
+<form th:align="center" class="create" th:method="GET" th:action="@{/admin/add}" style="margin-top: 50px"
+      >
+    <input  type="submit" value="Create new user">
+</form>
+</p>
+<table th:border="6" th:align="center" th:width="500" th:bgcolor="NavajoWhite" th:cellspacing="5" th:cellpadding="20"
+       style="margin-top: 25px">
     <tread>
-        <tr th:bgcolor="MediumSlateBlue	">
+        <tr th:bgcolor="AntiqueWhite">
             <th>Name</th>
             <th>Surname</th>
             <th>Age</th>
-            <th>
-                <form th:method="GET" th:action="@{/admin/add}">
-                    <input type="submit" value="Create new user">
-                </form>
-            </th>
+            <th colspan="2">Actions</th>
         </tr>
     </tread>
     <tbody>
@@ -36,8 +38,25 @@
     </tr>
     </tbody>
 </table>
-<p th:align="center"><button type="button"  onClick='location.href="http://localhost:8080/logout"'
-                             style="height: 250px; width: 400px"><font size="15">Выйти из аккаунта</font></button></p>
+<p th:align="center">
+    <button class="button" type="button" onClick='location.href="http://localhost:8080/logout"'/>
+    Выйти из аккаунта</button>
+    <style>
+        button {
+            color: darkmagenta;
+            background-color: lightcoral;
+        }
+
+        button {
+            font-size: 30px;
+        }
+
+        button:hover {
+            color: midnightblue;
+            background-color: red;
+        }
+    </style>
+</p>
 &nbsp
 </body>
 </html>
