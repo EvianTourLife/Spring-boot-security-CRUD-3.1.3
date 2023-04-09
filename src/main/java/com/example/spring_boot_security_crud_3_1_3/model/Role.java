@@ -12,8 +12,6 @@ public class Role {
     @Column(name = "role")
     private String role;
 
-//    private Set <User> userSet;
-
     public Role() {
     }
 

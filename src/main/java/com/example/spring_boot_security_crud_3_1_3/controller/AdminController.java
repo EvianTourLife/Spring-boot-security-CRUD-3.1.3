@@ -1,7 +1,6 @@
 package com.example.spring_boot_security_crud_3_1_3.controller;
 
 import com.example.spring_boot_security_crud_3_1_3.model.User;
-import com.example.spring_boot_security_crud_3_1_3.repositories.UserRepository;
 import com.example.spring_boot_security_crud_3_1_3.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
