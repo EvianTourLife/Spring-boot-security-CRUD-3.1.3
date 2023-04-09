@@ -1,13 +1,15 @@
 package com.example.spring_boot_security_crud_3_1_3.security;
 
+import com.example.spring_boot_security_crud_3_1_3.model.Role;
 import com.example.spring_boot_security_crud_3_1_3.model.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
+import java.util.*;
 
 public class UserDetailsImpl implements UserDetails {
-
+    String ROLE_PREFIX = "ROLE_";
     private final User user;
 
     public UserDetailsImpl(User user) {
@@ -16,8 +18,14 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Collection<Role> roles = user.getRoles();
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(ROLE_PREFIX+role.getRole()));
+        }
+        return authorities;
     }
+
 
     @Override
     public String getPassword() {

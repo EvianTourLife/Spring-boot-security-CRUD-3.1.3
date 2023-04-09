@@ -15,11 +15,5 @@ public class HelloController {
         return "home";
     }
 
-//    @GetMapping("/showUserInfo")
-//    public String showUserInfo() {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        UserDetailsImpl userDetails = (UserDetailsImpl) auth.getPrincipal();
-//        System.out.println(userDetails.getUser());
-//        return "home";
-//    }
+
 }
