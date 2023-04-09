@@ -21,7 +21,7 @@ public class UserDetailsImpl implements UserDetails {
         Collection<Role> roles = user.getRoles();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(ROLE_PREFIX+role.getRole()));
+            authorities.add(new SimpleGrantedAuthority(ROLE_PREFIX + role.getRole()));
         }
         return authorities;
     }

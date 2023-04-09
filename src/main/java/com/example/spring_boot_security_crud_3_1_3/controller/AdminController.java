@@ -36,17 +36,19 @@ public class AdminController {
     }
 
     @GetMapping("/edit")
-    public String editUser(Model model, @RequestParam(value = "id",required = false) Long id) {
+    public String editUser(Model model, @RequestParam(value = "id", required = false) Long id) {
         model.addAttribute("user", service.getUserRepository().getById(id));
         return "edit";
     }
+
     @PostMapping("/edit")
-    public String update(@ModelAttribute("user") User user){
+    public String update(@ModelAttribute("user") User user) {
         service.getUserRepository().saveAndFlush(user);
         return "redirect:/admin/getAll";
     }
+
     @PostMapping("/delete")
-    public String delete(@RequestParam(value = "id",required = false) Long id){
+    public String delete(@RequestParam(value = "id", required = false) Long id) {
         service.getUserRepository().deleteById(id);
         return "redirect:/admin/getAll";
     }
