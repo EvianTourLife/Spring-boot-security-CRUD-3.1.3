@@ -5,6 +5,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -38,11 +39,11 @@ public class User {
     private String username;
 
 
-//    @ManyToMany
-//    @JoinTable(name = "users_roles",
-//    joinColumns = @JoinColumn(name = "user_id"),
-//    inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Collection<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    Collection <Role> roles;
 
 
     @Override
@@ -68,14 +69,13 @@ public class User {
     public User() {
     }
 
-//    public Collection<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Collection<Role> roles) {
-//        this.roles = roles;
-//    }
+    public Collection<Role> getRoles() {
+        return roles;
+    }
 
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;

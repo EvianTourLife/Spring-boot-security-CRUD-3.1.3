@@ -27,4 +27,8 @@ public class UserServiceImpl implements UserDetailsService {
         }
         return new UserDetailsImpl(user.get());
     }
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
 }
