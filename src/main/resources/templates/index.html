@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <title>All users</title>
 </head>
-<body th:bgcolor="MistyRose">
+<body th:bgcolor="PowderBlue">
 <p>
 
 <form th:align="center" class="create" th:method="GET" th:action="@{/admin/add}" style="margin-top: 50px"
-      >
-    <input  type="submit" value="Create new user">
+>
+    <input type="submit" value="Create new user">
 </form>
 </p>
 <table th:border="6" th:align="center" th:width="500" th:bgcolor="NavajoWhite" th:cellspacing="5" th:cellpadding="20"
@@ -28,13 +28,16 @@
         <td><span th:text="${user.getName()}"> Name </span></td>
         <td><span th:text="${user.getSurname()}"> Surname </span></td>
         <td><span th:text="${user.getAge()}"> Age </span></td>
-        <td><a th:href="@{/admin/edit(id=${user.getId()})}">Edit</a></td>
+        <td>
+            <a th:href="@{/admin/edit(id=${user.getId()})}">
+                <form><input type="button" value="Edit"></form>
+            </a>
+        </td>
         <td>
             <form th:method="POST" th:action="@{/admin/delete(id=${user.getId()})}">
                 <input type="submit" value="Delete">
             </form>
         </td>
-
     </tr>
     </tbody>
 </table>

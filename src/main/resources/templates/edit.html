@@ -2,48 +2,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Update user</title>
+    <meta charset="UTF-8">
+    <title>Update user</title>
 </head>
-<body th:bgcolor="MistyRose">
+<body th:bgcolor="PowderBlue">
 <form th:method="POST" th:action="@{/admin/edit(id=${user.getId()})}" th:object="${user}" th:align="center">
-  <div>
-    <label for="name">Enter new name</label>
-    <input name="name" th:field="*{name}" id="name"/>
-    <br/>
-    <label for="surname">Enter new surname</label>
-    <input name="surname" th:field="*{surname}" id="surname"/>
-    <br>
-    <label for="age">Enter new age</label>
-    <input name="age" th:field="*{age}" id="age"/>
-    <br>
-    <label for="username">Username</label>
-    <input name="username" th:field="*{username}" id="username"/>
-    <br>
-    <label for="password">Password</label>
-    <input name="password" th:field="*{password}" id="password"/>
-    <br>
+    <table th:border="0" th:cellpadding="10" th:align="center">
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Surname:</td>
+            <td><input type="text" th:field="*{surname}"/>
+            <td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" th:field="*{username}"/></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" th:field="*{age}"/></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="text" th:field="*{password}"/></td>
+        </tr>
+    </table>
     <input type="submit" value="Update" th:align="center">
-  </div>
 </form>
 <p th:align="center">
-  <button class="button" type="button" onClick='location.href="http://localhost:8080/logout"'/>
-  Выйти из аккаунта</button>
-  <style>
-    button {
-      color: darkmagenta;
-      background-color: lightcoral;
-    }
+    <button class="button" type="button" onClick='location.href="http://localhost:8080/logout"'/>
+    Выйти из аккаунта</button>
+    <style>
+        button {
+            color: darkmagenta;
+            background-color: lightcoral;
+        }
 
-    button {
-      font-size: 30px;
-    }
+        button {
+            font-size: 30px;
+        }
 
-    button:hover {
-      color: midnightblue;
-      background-color: red;
-    }
-  </style>
+        button:hover {
+            color: midnightblue;
+            background-color: red;
+        }
+    </style>
 </p>
 </body>
 </html>
