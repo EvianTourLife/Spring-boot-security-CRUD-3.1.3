@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -21,6 +20,7 @@ public class UserServiceImpl implements UserDetailsService {
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+    @Transactional(readOnly = true)
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUsername(username);
