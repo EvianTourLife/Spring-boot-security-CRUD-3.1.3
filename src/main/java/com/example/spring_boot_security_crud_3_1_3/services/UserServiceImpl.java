@@ -10,10 +10,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService,UserService {
 
     private final UserRepository userRepository;
 
@@ -32,7 +33,35 @@ public class UserServiceImpl implements UserDetailsService {
         return new UserDetailsImpl(user.get());
     }
 
-    public UserRepository getUserRepository() {
-        return userRepository;
+
+    @Override
+    public User getById(Long id) {
+        return userRepository.getById(id);
     }
+
+    @Override
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public User edit(User user) {
+        return userRepository.saveAndFlush(user);
+    }
+
+    @Override
+    public List<User> getAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void delete(Long id) {
+         userRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
 }
