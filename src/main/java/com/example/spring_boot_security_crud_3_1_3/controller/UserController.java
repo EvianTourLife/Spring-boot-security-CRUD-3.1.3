@@ -1,5 +1,6 @@
 package com.example.spring_boot_security_crud_3_1_3.controller;
 
+import com.example.spring_boot_security_crud_3_1_3.services.UserService;
 import com.example.spring_boot_security_crud_3_1_3.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,7 @@ import java.security.Principal;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-    private final UserServiceImpl service;
+    private final UserService service;
 
     @Autowired
     public UserController(UserServiceImpl service) {

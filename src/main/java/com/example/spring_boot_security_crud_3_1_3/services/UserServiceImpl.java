@@ -2,7 +2,6 @@ package com.example.spring_boot_security_crud_3_1_3.services;
 
 import com.example.spring_boot_security_crud_3_1_3.model.User;
 import com.example.spring_boot_security_crud_3_1_3.repositories.UserRepository;
-import com.example.spring_boot_security_crud_3_1_3.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,7 +29,8 @@ public class UserServiceImpl implements UserDetailsService,UserService {
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("user не существует");
         }
-        return new UserDetailsImpl(user.get());
+        return new org.springframework.security.core.userdetails.User(user.get().getUsername(),
+                user.get().getPassword(),user.get().getAuthorities());
     }
 
 
