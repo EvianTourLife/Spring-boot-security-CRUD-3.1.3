@@ -5,7 +5,11 @@ import com.example.spring_boot_security_crud_3_1_3.services.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.naming.Binding;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin")
@@ -25,12 +29,15 @@ public class AdminController {
     }
 
     @GetMapping("/add")
-    public String addUser(@ModelAttribute("user") User user) {
+    public String addUser(@ModelAttribute("user")  User user) {
         return "add";
     }
 
     @PostMapping()
-    public String createUser(@ModelAttribute("user") User user) {
+    public String createUser(@ModelAttribute("user") @Valid User user,  BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            return "add";
+        }
         service.getUserRepository().save(user);
         return "redirect:/admin/getAll";
     }
